@@ -22,7 +22,7 @@ pipeline{
     stage('Deploy'){
         steps{
 
-                sh 'scp target/*.war home/jenkinsAdmin/tomcat/apache-tomcat-8.5.38/webapps'
+                sh 'scp target/*.war jenkinsAdmin@13.82.82.176:9999'
 
         }
     }
