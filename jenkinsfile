@@ -14,13 +14,6 @@ pipeline{
             sh 'mvn test verify'
         }
     }
-    stage('SonarQube analysis') {
-        steps {
-            withSonarQubeEnv("SonarQube") {
-                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.4.0.905:sonar'
-            }
-        }
-    }
     stage('Package') {
         steps {
             sh 'mvn package'
