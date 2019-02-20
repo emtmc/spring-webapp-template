@@ -103,6 +103,19 @@
                     <uriEncoding>UTF-8</uriEncoding>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.3.0.603</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sonar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <repositories>
@@ -779,4 +792,19 @@
         <encoding>UTF-8</encoding>
         <java-version>1.7</java-version>
     </properties>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+                <sonar.projectkey>emtmc_spring-webapp-template</sonar.projectkey>
+                <sonar.login>8b7cee4441bba0edf017e823ed5b0fcc63d778fa</sonar.login>
+                <sonar.organization>emtmc-github</sonar.organization>
+            </properties>
+
+        </profile>
+    </profiles>
 </project>
