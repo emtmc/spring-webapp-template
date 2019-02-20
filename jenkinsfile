@@ -22,8 +22,9 @@ pipeline{
     stage('Deploy'){
         steps{
 
+sshagent (credentials: ['tomcat-dev']) {
                 sh 'scp target/*.war jenkinsAdmin@13.82.82.176:9999'
-
+}
         }
     }
     }
