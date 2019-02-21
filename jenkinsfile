@@ -25,7 +25,7 @@ pipeline{
                          label "jenkins"}
             }
             steps {
-                build (job:'Template' , propagate:false , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")])
+                build (job:'Tomcat deploy to Integration' , propagate:false , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")])
             }
         }
     }
