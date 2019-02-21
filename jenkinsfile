@@ -20,11 +20,7 @@ pipeline{
         }
     }
         stage ('Deploy to Integration') {
-            agent {node
-                        {
-                         label "jenkins"}
-            }
-            steps {
+                       steps {
                 build (job:'Tomcat deploy to Integration' , propagate:false , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")])
             }
         }
