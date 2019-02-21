@@ -19,13 +19,12 @@ pipeline{
             sh 'mvn package'
         }
     }
-    stage('Deploy'){
-        steps{
-
-    sshagent (credentials: ['tomcat-dev']) {
-          sh 'scp var/lib/jenkins/workspace/Template/target/*.war '
-}
+        stage ('Deploy to Integration') {
+            agent {node{
+                   label "jenkins"}
+            }
+            steps {
+                build job:'../Tomcat deploy to Integration' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
+            }
         }
-    }
-    }
 }
