@@ -22,9 +22,9 @@ pipeline{
     stage('Deploy'){
         steps{
 
-sshagent (credentials: ['tomcat-dev']) {
-                sh 'scp var/lib/jenkins/workspace/Template/target/*.war jenkinsAdmin@13.82.82.176:9999'
-}
+
+                sh 'scp var/lib/jenkins/workspace/Template/target/*.war '
+
         }
     }
     }
