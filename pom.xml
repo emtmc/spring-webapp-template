@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>projectName</id>
+            <name>Tomcat</name>
+            <url>http://13.82.82.176:9999/manager/text</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
     <modelVersion>4.0.0</modelVersion>
     <groupId>xxxxxx.yyyyyy.zzzzzz</groupId>
     <artifactId>projectName</artifactId>
@@ -101,9 +110,12 @@
                 <version>${org.apache.tomcat.maven.version}</version>
                 <configuration>
                     <uriEncoding>UTF-8</uriEncoding>
+                    <url>http://13.82.82.176:9999/manager/text</url>
+                    <server>TomcatServer</server>
+                    <path>/projectName</path>
                 </configuration>
             </plugin>
-            <plugin>
+           <!-- <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.3.0.603</version>
@@ -115,7 +127,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
     <repositories>
