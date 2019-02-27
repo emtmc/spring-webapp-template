@@ -6,7 +6,7 @@
             <uniqueVersion>false</uniqueVersion>
             <id>projectName</id>
             <name>Tomcat</name>
-            <!--comment-->
+            <!--comment23-->
             <url>http://13.82.82.176:9999/manager/text</url>
             <layout>default</layout>
         </repository>
