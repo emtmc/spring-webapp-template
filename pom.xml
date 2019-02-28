@@ -6,7 +6,7 @@
             <uniqueVersion>false</uniqueVersion>
             <id>projectName</id>
             <name>Tomcat</name>
-            <!--comment2345   -->
+            <!--comment2345    -->
             <url>http://13.82.82.176:9999/manager/text</url>
             <layout>default</layout>
         </repository>
@@ -116,7 +116,7 @@
                     <path>/projectName</path>
                 </configuration>
             </plugin>
-           <!-- <plugin>
+            <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.3.0.603</version>
@@ -128,7 +128,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
     <repositories>
