@@ -9,22 +9,43 @@ pipeline{
             sh 'mvn clean compile'
         }
     }
+    stage('Build Start Notification')
+    {
+    slackSend baseUrl: 'https://developmentop-zrv1845.slack.com/services/hooks/jenkins-ci/', channel: 'devops-pipeline', color: 'good', message: 'The build has started', tokenCredentialId: 'jenkins-slack-integration'
+    }
+
     stage('Testing') {
         steps{
             sh 'mvn test verify'
         }
     }
+    stage('Testing Notification')
+    {
+    slackSend baseUrl: 'https://developmentop-zrv1845.slack.com/services/hooks/jenkins-ci/', channel: 'devops-pipeline', color: 'good', message: 'Testing has started', tokenCredentialId: 'jenkins-slack-integration'
+    }
+
     stage('Package') {
         steps {
             sh 'mvn package'
         }
     }
+
+    stage('Packing notification')
+    {
+    slackSend baseUrl: 'https://developmentop-zrv1845.slack.com/services/hooks/jenkins-ci/', channel: 'devops-pipeline', color: 'good', message: 'Packaging Build', tokenCredentialId: 'jenkins-slack-integration'
+    }
+
         stage ('Deploy to Integration') {
                        steps {
                 build (job:'Tomcat deploy to Integration' , propagate:false , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")])
             }
         }
+    stage('Build Complete Notification')
+    {
+    slackSend baseUrl: 'https://developmentop-zrv1845.slack.com/services/hooks/jenkins-ci/', channel: 'devops-pipeline', color: 'good', message: 'Build Completed!', tokenCredentialId: 'jenkins-slack-integration'
     }
+    }
+
     post{
         always{
         archiveArtifacts artifacts:'**/*.war'
