@@ -27,8 +27,7 @@
                     </includes>
                 </configuration>
             </plugin>
-<!--TEST
-2222 test-->
+            <!-- Demonstration Test -->
             <plugin>
                 <groupId>com.google.code.maven-license-plugin</groupId>
                 <artifactId>maven-license-plugin</artifactId>
